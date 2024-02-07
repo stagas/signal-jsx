@@ -1,0 +1,48 @@
+{
+  "name": "signal-jsx",
+  "author": "stagas",
+  "version": "1.0.0",
+  "description": "JSX with signals",
+  "license": "AGPLv3",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo ok"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./jsx-runtime": {
+      "import": "./src/jsx-runtime.ts",
+      "require": "./src/jsx-runtime.ts"
+    },
+    "./jsx-dev-runtime": {
+      "import": "./src/jsx-dev-runtime.ts",
+      "require": "./src/jsx-dev-runtime.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "": [
+        "./src/index.ts"
+      ],
+      "jsx-runtime": [
+        "./src/jsx-runtime.ts"
+      ],
+      "jsx-dev-runtime": [
+        "./src/jsx-dev-runtime.ts"
+      ]
+    }
+  },
+  "devDependencies": {
+    "ambient-dts": "github:stagas/ambient-dts",
+    "vite": "^5.0.12"
+  },
+  "dependencies": {
+    "jsx": "github:stagas/jsx",
+    "signal": "github:stagas/signal",
+    "utils": "github:stagas/utils"
+  }
+}
