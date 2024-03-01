@@ -25,6 +25,7 @@ export function Signal() {
       if (!isFunction(fn)) return signalfx(fn, thisArg, desc)
       const dispose = fx(fn, thisArg)
       signal.disposables.push(dispose)
+      return dispose
     },
     dispose: once(function dispose() {
       signal.disposables.forEach(fn => fn())
