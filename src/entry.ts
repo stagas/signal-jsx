@@ -67,10 +67,15 @@ export function hmr(start: Start, state: Record<string, any>, replaceState: (x: 
 
 fns.computedAttributeFn = (el, name, fn) => {
   fx(() => {
-    el.setAttribute(
-      name,
-      [fn()].flat(Infinity).filter(Boolean).join(' ')
-    )
+    if (name === 'style') {
+      Object.assign(el.style, fn())
+    }
+    else {
+      el.setAttribute(
+        name,
+        [fn()].flat(Infinity).filter(Boolean).join(' ')
+      )
+    }
   })
 }
 
