@@ -56,7 +56,7 @@ export function cleanup() {
   jsxState.disposables.splice(0).forEach(fn => fn())
 }
 
-export function hmr(start: Start, state: Record<string, any>, replaceState: (x: Record<string, any>) => void) {
+export function hmr<T extends Record<string, any>>(start: Start, state: T, replaceState: (x: T) => void) {
   if (!import.meta.hot) return () => { }
   return jsxHmr(start, Object.assign(state, { disposables: [] }), function (newState) {
     Object.assign(newState, { disposables: [] })
